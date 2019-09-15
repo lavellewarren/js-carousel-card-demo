@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>
+        Responsive Smooth Card Carousel Demo
+    </title>
+
+    <style>
+      html {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ece9e6;
+        background-image: linear-gradient(to top, #cca6ee 0%, #fbd8c2 100%);
+      }
+
+      html body {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: "Quicksand", sans-serif;
+        overflow-x: hidden;
+        position: relative;
+        top: -2.5rem;
+      }
+
+      html body .heading {
+        text-align: center;
+        color: #2e5266;
+        margin-bottom: 3rem;
+      }
+
+      html body .heading h1 {
+        margin-bottom: 0;
+      }
+
+      html body .heading h6 {
+        margin: 0;
+      }
+
+      html body .heading p {
+        margin: 0;
+      }
+
+      html body .heading a {
+        color: #2e5266;
+        display: inline-block;
+      }
+
+      html body .heading a .fab {
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .card-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: transform 400ms;
+        will-change: transform;
+          overflow: hidden;
+      }
+
+      .card-carousel .card-slide {
+        height: 350px;
+        width: 200px;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        pointer-events: none;
+        background: #2e5266;
+        background: linear-gradient(to top, #2e5266, #6e8898);
+        transition: opacity,transform 1s;
+          will-change: opacity,transform;
+
+       /*
+           -webkit-transform: scale(0.6) translateY(-2rem);
+          transform: scale(0.6) translateY(-2rem);
+          opacity: 0;
+       */
+      }
+
+      .card-carousel .card-slide:after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        border-radius: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        bottom: -5rem;
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        display: none;
+      }
+
+      .card-carousel .card-slide:nth-child(0):before {
+        content: "0";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(1):before {
+        content: "1";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(2):before {
+        content: "2";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(3):before {
+        content: "3";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(4):before {
+        content: "4";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(5):before {
+        content: "5";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(6):before {
+        content: "6";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(7):before {
+        content: "7";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(8):before {
+        content: "8";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide:nth-child(9):before {
+        content: "9";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 3rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .card-carousel .card-slide.active {
+          z-index: 3;
+          -webkit-transform: scale(1) translateY(0) translateX(0);
+          transform: scale(1) translateY(0) translateX(0);
+          opacity: 1;
+          pointer-events: auto;
+          transition: 1s;
+      }
+
+      .card-carousel .card-slide.prev,
+      .card-carousel .card-slide.next {
+          z-index: 2;
+          -webkit-transform: scale(0.8) translateY(-1rem) translateX(0);
+          transform: scale(0.8) translateY(-1rem) translateX(0);
+          opacity: 0.6;
+          pointer-events: auto;
+          transition: 1s;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="heading">
+      <h1>
+          Responsive Smooth Card Carousel
+      </h1>
+        <p>
+            ( click slides or press left & right arrow keys )
+        </p>
+    </div>
+    <div class="card-carousel">
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+      <div class="card-slide"></div>
+    </div>
+    <script>
+
+function Slider(parameters = {}) {
+  /**
+   * Define Selector
+   * */
+  const selector = {
+    container: parameters.container || ".card-carousel",
+    cards: parameters.cards || ".card-slide",
+  };
+
+  /**
+   * Define Callbacks
+   * */
+  const callbacks = {
+    onIndexChanged(val, initial) {
+      parameters.onIndexChanged
+        ? parameters.onIndexChanged(val, initial)
+        : null;
+    },
+  };
+
+  /**
+   * Function helper
+   * */
+  const siblings = {
+    getNextAll(elem, filter) {
+      var sibs = [];
+      while ((elem = elem.nextSibling)) {
+        if (elem.nodeType === 3) continue; // text node
+        if (!filter || filter(elem)) sibs.push(elem);
+      }
+      return sibs;
+    },
+    getPreviousAll(elem, filter) {
+      var sibs = [];
+      while ((elem = elem.previousSibling)) {
+        if (elem.nodeType === 3) continue; // text node
+        if (!filter || filter(elem)) sibs.push(elem);
+      }
+      return sibs;
+    },
+  };
+
+  /**
+   * Jquery Replacer
+   * */
+  const _$ = (selector) => {
+    return {
+      el:
+        typeof selector == "string"
+          ? $container.el.querySelector(selector)
+          : selector,
+      addClass(className) {
+        try {
+          this.el.classList.add(className);
+        } catch (e) {}
+        return this;
+      },
+      removeClass(className) {
+        try {
+          this.el.classList.remove(className);
+        } catch (e) {}
+        return this;
+      },
+      prev() {
+        return _$(this.el.previousElementSibling);
+      },
+      next() {
+        return _$(this.el.nextElementSibling);
+      },
+      prevAll(cb) {
+        siblings.getPreviousAll(this.el).forEach((el) => cb(_$(el)));
+        return this;
+      },
+      nextAll(cb) {
+        siblings.getNextAll(this.el).forEach((el) => cb(_$(el)));
+        return this;
+      },
+    };
+  };
+
+  /**
+   * $elements
+   * */
+  $container = _$(document.querySelector(selector.container));
+  $cards = $container.el.querySelectorAll(selector.cards);
+
+  /**
+   * set automaticly the current active slide
+   * */
+  $num = $cards.length;
+  $even = $num / 2;
+  $odd = ($num + 1) / 2;
+  let startIndex = null;
+
+  startIndex = $num % 2 == 0 ? $even : $odd;
+
+  _$(selector.cards + ":nth-child(" + startIndex + ")")
+    .addClass("active")
+    .prevAll((node) => node.addClass("prev"))
+    .nextAll((node) => node.addClass("next"));
+  let tempLastEl = startIndex - 1;
+
+  callbacks.onIndexChanged(tempLastEl, true);
+
+  function onItemClick(ev) {
+    let index = Array.from(ev.target.parentNode.children).indexOf(ev.target);
+    if (tempLastEl === index) return;
+    tempLastEl = index;
+
+    callbacks.onIndexChanged(index);
+
+    let offset = +_$(selector.cards + ".active").el.clientWidth;
+    let match = $container.el.style.transform.match(/-?[0-9]+(\.[0-9]+)?/g, "");
+    const currentOffset = +(match ? match[0] : 0) || 0;
+    const $current = _$(ev.target);
+
+    offset *= ev.target.classList.contains("next") ? -1 : 1;
+
+    $container.el.style.transform =
+      "translateX(" + (currentOffset + offset) + "px)";
+
+    $current.addClass("active").removeClass("prev").removeClass("next");
+
+    $current
+      .prevAll((el) =>
+        el.removeClass("next").removeClass("active").addClass("prev")
+      )
+      .nextAll((el) =>
+        el.removeClass("prev").removeClass("active").addClass("next")
+      );
+  }
+
+  $cards.forEach(($card) =>
+    $card.addEventListener("click", () => onItemClick({ target: $card }))
+  );
+  
+  
+   // Demo purpose
+  document.body.addEventListener("keydown", (ev) => {
+    if (ev.keyCode == 37) {
+      // left
+      _$(".active").prev().el?.click();
+    } else if (ev.keyCode == 39) {
+      // right
+      _$(".active").next().el?.click();
+    }
+  });
+
+}
+      Slider();
+    </script>
+  </body>
+</html>
